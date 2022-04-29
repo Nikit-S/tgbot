@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 )
 
 /*
@@ -97,7 +98,7 @@ func main() {
 
 func main() {
 	server := http.Server{
-		Addr: "8080",
+		Addr: os.Getenv("PORT"),
 	}
 	http.HandleFunc("/what", func(w http.ResponseWriter, r *http.Request) { fmt.Fprintln(w, "Hello") })
 	server.ListenAndServe()
