@@ -1,6 +1,12 @@
 package main
 
 import (
+	"fmt"
+	"net/http"
+)
+
+/*
+import (
 	"bytes"
 	"encoding/json"
 	"errors"
@@ -85,4 +91,12 @@ func sayPolo(chatID int64) error {
 // FInally, the main funtion starts our server on port 3000
 func main() {
 	http.ListenAndServe(":3000", http.HandlerFunc(Handler))
+}
+
+*/
+
+func main() {
+	server := http.Server{}
+	http.HandleFunc("/what", func(w http.ResponseWriter, r *http.Request) { fmt.Fprintln(w, "Hello") })
+	server.ListenAndServe()
 }
