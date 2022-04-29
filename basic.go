@@ -97,9 +97,6 @@ func main() {
 */
 
 func main() {
-	server := http.Server{
-		Addr: os.Getenv("PORT"),
-	}
-	http.HandleFunc("/what", func(w http.ResponseWriter, r *http.Request) { fmt.Fprintln(w, "Hello") })
-	server.ListenAndServe()
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { fmt.Fprintln(w, "Hello") })
+	http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 }
