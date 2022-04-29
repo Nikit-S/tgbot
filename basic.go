@@ -96,7 +96,9 @@ func main() {
 */
 
 func main() {
-	server := http.Server{}
+	server := http.Server{
+		Addr: "8080",
+	}
 	http.HandleFunc("/what", func(w http.ResponseWriter, r *http.Request) { fmt.Fprintln(w, "Hello") })
 	server.ListenAndServe()
 }
