@@ -1,4 +1,4 @@
-module tg
+module testbot
 
 go 1.18
 
